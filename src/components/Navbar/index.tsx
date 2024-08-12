@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 import {
@@ -10,10 +9,8 @@ import {
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
+    NavigationMenuTrigger
 } from "@/components/ui/navigation-menu"
-import { Separator } from "../ui/separator"
 
 const components: { title: string; href: string; description: string }[] = [
     {
@@ -63,68 +60,34 @@ export function Navbar() {
                         <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <li className="row-span-3">
                                 <NavigationMenuLink asChild>
-                                    <a
-                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-violet-700 to-violet-800 p-6 no-underline outline-none focus:shadow-md"
-                                        href="/"
+                                    <div
+                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                     >
-
-                                        <div className="mb-2 text-lg font-medium text-zinc-100">
+                                        <div className="mb-2 text-lg font-medium">
                                             Sofon
                                         </div>
-                                        <p className="text-sm leading-tight text-zinc-300">
+                                        <p className="text-sm leading-tight text-muted-foreground">
                                             Automatizando processos e solucionando seus problemas
                                         </p>
-                                    </a>
+                                    </div>
                                 </NavigationMenuLink>
                             </li>
 
                             <ListItem href="/docs" title="Integração mensal">
-                                Re-usable components built using Radix UI and Tailwind CSS.
+                                Escale o seu atendimento, automatize seu fluxo de telefone.
                             </ListItem>
-                            <ListItem href="/docs/installation" title="Installation">
-                                How to install dependencies and structure your app.
+                            <ListItem href="/docs/installation" title="Servidor PABX">
+                                Monte fluxos customizados, troncos, ramais, filas entre outros.
                             </ListItem>
-                            <ListItem href="/docs/primitives/typography" title="Typography">
-                                Styles for headings, paragraphs, lists...etc
+                            <ListItem href="/docs/primitives/typography" title="Número VOIP">
+                                Melhor qualidade sonora, reduzida de interferências e problemas externos.
                             </ListItem>
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                            <li className="row-span-3">
-                                <NavigationMenuLink asChild>
-                                    <a
-                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                        href="/"
-                                    >
-                                        <div className="mb-2 mt-4 text-lg font-medium">
-                                            shadcn/ui
-                                        </div>
-                                        <p className="text-sm leading-tight text-muted-foreground">
-                                            Beautifully designed components built with Radix UI and
-                                            Tailwind CSS.
-                                        </p>
-                                    </a>
-                                </NavigationMenuLink>
-                            </li>
 
-                            <ListItem href="/docs" title="Introduction">
-                                Re-usable components built using Radix UI and Tailwind CSS.
-                            </ListItem>
-                            <ListItem href="/docs/installation" title="Installation">
-                                How to install dependencies and structure your app.
-                            </ListItem>
-                            <ListItem href="/docs/primitives/typography" title="Typography">
-                                Styles for headings, paragraphs, lists...etc
-                            </ListItem>
-                        </ul>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>Planos</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                             {components.map((component) => (
@@ -140,11 +103,9 @@ export function Navbar() {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <Link href="/docs" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Documentation
-                        </NavigationMenuLink>
-                    </Link>
+
+                    <p className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">Contato</p>
+
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>
